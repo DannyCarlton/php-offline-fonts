@@ -1,8 +1,5 @@
 PHP Offline  Fonts 
 ==================
-[![Release](https://img.shields.io/github/release/DannyCarlton/php-offline-fonts.svg?style=flat)](https://github.com/DannyCarlton/php-offline-fonts/releases)
-[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-red.svg?style=flat)](https://github.com/DannyCarlton/php-offline-fonts/blob/master/LICENSE)
-[![Gitter chat](http://img.shields.io/badge/gitter-open-1DCE73.svg?style=flat)](https://gitter.im/DannyCarlton/php-offline-fonts)
 
 ### **I corrected the original to make it work again**
 
