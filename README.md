@@ -18,7 +18,7 @@ How To
 ------
 This only supports Google Fonts. 
 
- This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomain and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
+ This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomian and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
 
 So instead of:
 ```html
@@ -34,16 +34,13 @@ You can use:
 
  Also, it may be wise to change the Access-Control-Allow-Origin in the .htaccess, to only allow your sites (unless you want everyone using it). You would change it to...
  
- Header set Access-Control-Allow-Origin "https://myfirstsite.com"
- Header set Access-Control-Allow-Origin "http://myfirstsite.com"
- Header set Access-Control-Allow-Origin "https://mysecond.com"
- Header set Access-Control-Allow-Origin "http://mysecond.com"
- Header set Access-Control-Allow-Origin "https://mythirdsite.com"
- Header set Access-Control-Allow-Origin "http://mythirdsite.com"
+~
+    Header set Access-Control-Allow-Origin "https://myfirstsite.com"
+    Header set Access-Control-Allow-Origin "http://myfirstsite.com"
+    Header set Access-Control-Allow-Origin "https://mysecond.com"
+    Header set Access-Control-Allow-Origin "http://mysecond.com"
+    Header set Access-Control-Allow-Origin "https://mythirdsite.com"
+    Header set Access-Control-Allow-Origin "http://mythirdsite.com"
+~
  ...etc.
  
- -----
-
-
-
-
