@@ -1,43 +1,49 @@
-PHP Offline  Fonts
+PHP Offline  Fonts 
 ==================
-[![Release](https://img.shields.io/github/release/DaAwesomeP/php-offline-fonts.svg?style=flat)](https://github.com/DaAwesomeP/php-offline-fonts/releases)
-[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-red.svg?style=flat)](https://github.com/DaAwesomeP/php-offline-fonts/blob/master/LICENSE)
-[![Gitter chat](http://img.shields.io/badge/gitter-open-1DCE73.svg?style=flat)](https://gitter.im/DaAwesomeP/php-offline-fonts)
+[![Release](https://img.shields.io/github/release/DannyCarlton/php-offline-fonts.svg?style=flat)](https://github.com/DannyCarlton/php-offline-fonts/releases)
+[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-red.svg?style=flat)](https://github.com/DannyCarlton/php-offline-fonts/blob/master/LICENSE)
+[![Gitter chat](http://img.shields.io/badge/gitter-open-1DCE73.svg?style=flat)](https://gitter.im/DannyCarlton/php-offline-fonts)
 
-### **DEPRECATED: This project was an experiment and is no longer under development.**
+### **I corrected the original to make it work again**
 
-**Why can't I download the fonts from Google myself?**
-Well, you'll be stuck with either the hinted/unhinted format, which will cause some machines to butcher your font. Also, Google corretly updates and assigns the correct files automatically for you. *This library is special because it downloads the fonts from Google to your server based on User Agent, ensuring perfect compatibility.*
+Google changed their url, so instead of caching the fonts, it was pulling them from Google.
+
+**Why couldn't I just download the fonts from Google myself?**
+You can, but there's a ton of them. This way the script pulls the font and the css from Google, caches it, and serves it to the visitors to your site. It will only grab the fonts that are requested, not all eleventy gazillion fonts Google offers.
+
+**Why not just use Google fonts?**
+Because some people don't like Big Brother Google spying on them. This creates a buffer between your site's visitors and Google so they can browse in privacy.
 
 How To
 ------
-This will soon be a composer package or include. It also only supports Google Fonts. 
- 1.  Copy the `fonts` folder where you would keep similar folders like `css`, `js`, etc. in your project.
- 2.  Configure the `GoogleFontsCSS` file (its PHP) so that it knows what directory it's in with `$fonts_cache_folder`.
- 3.  Set the folder to save the CSS files (based on User Agent) with `$cache_folder`.
- 4.  Set `fonts_client_cache_folder` to how the client will perceive the font folder. PHP and the client will probably see this differently. Just see how I have it configured previously. The `$fonts_cache_folder` tells PHP that `DOCUMENT_ROOT` is the starting point, but a browser knows that `/` will bring it to the root. If you are hosting the actual fonts cross-domain, but not the CSS, this is the option you need to change to reflect that.
- 5.  The `file_extention` setting is optional. Try it and see.
- 6.  The `google_url` is what the script will look for when replacing Google's path to the font with your own.
- 7.  You may now use it like you would use Google Fonts:
+This only supports Google Fonts. 
 
-This:
+ This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomain and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
+
+So instead of:
 ```html
 <link href='//fonts.googleapis.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
 ```
-Becomes:
+You can use:
 ```html
-<link href='/fonts/GoogleFontsCSS?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.mydomain.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
 ```
+-----
 
-**If Anything has left you in the dark, feel free to open an issue about it!**
+**For more security...**
 
-TODO
-----
- - More font providers
- - Composer Package
- - Auto delete/expring fonts (your cache will be huge otherwise)
- - Nginx Example
+ Also, it may be wise to change the Access-Control-Allow-Origin in the .htaccess, to only allow your sites (unless you want everyone using it). You would change it to...
+ 
+ Header set Access-Control-Allow-Origin "https://myfirstsite.com"
+ Header set Access-Control-Allow-Origin "http://myfirstsite.com"
+ Header set Access-Control-Allow-Origin "https://mysecond.com"
+ Header set Access-Control-Allow-Origin "http://mysecond.com"
+ Header set Access-Control-Allow-Origin "https://mythirdsite.com"
+ Header set Access-Control-Allow-Origin "http://mythirdsite.com"
+ ...etc.
+ 
+ -----
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/DaAwesomeP/php-offline-fonts/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 
