@@ -15,7 +15,7 @@ How To
 ------
 This only supports Google Fonts. 
 
- This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomian and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
+ This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomain and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
 
 So instead of:
 ```html
