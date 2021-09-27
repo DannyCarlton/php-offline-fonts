@@ -6,16 +6,18 @@ PHP Offline  Fonts
 Google changed their url, so instead of caching the fonts, it was pulling them from Google.
 
 **Why couldn't I just download the fonts from Google myself?**
+
 You can, but there's a ton of them. This way the script pulls the font and the css from Google, caches it, and serves it to the visitors to your site. It will only grab the fonts that are requested, not all eleventy gazillion fonts Google offers. The orignal saved the css using the user-agent, but I found that it created a ton of files, and I haven't yet seen it needed (maybe I will eventually) so I removed that part and the css is stored based on the query string alone.
 
 **Why not just use Google fonts?**
+
 Because some people don't like Big Brother Google spying on them. This creates a buffer between your site's visitors and Google so they can browse in privacy.
 
-How To
+How it works...
 ------
-This only supports Google Fonts. 
+NOTE: This only supports Google Fonts. 
 
- This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomain and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
+This is set up how I am using it at https://fonts.amplighter.com. I created a "fonts" subdomain and housed the script and files there. The .htaccess allow any request to that domain to be funneled through the main script, duplicating the way Google fonts are accessed. 
 
 So instead of:
 ```html
