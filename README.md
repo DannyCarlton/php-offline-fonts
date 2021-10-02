@@ -34,12 +34,16 @@ You can use:
  Also, it may be wise to change the Access-Control-Allow-Origin in the .htaccess, to only allow your sites (unless you want everyone using it). You would change it to...
  
 ```
-    Header set Access-Control-Allow-Origin "https://myfirstsite.com"
-    Header set Access-Control-Allow-Origin "http://myfirstsite.com"
-    Header set Access-Control-Allow-Origin "https://mysecond.com"
-    Header set Access-Control-Allow-Origin "http://mysecond.com"
-    Header set Access-Control-Allow-Origin "https://mythirdsite.com"
-    Header set Access-Control-Allow-Origin "http://mythirdsite.com"
+# ----------------------------------------------------------------------
+# Allow loading of external fonts
+# ----------------------------------------------------------------------
+<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+    <IfModule mod_headers.c>
+        SetEnvIf Origin "http(s)?://(www\.)?(mysite.com|mysite.org|myothersite.com|yetanothersite.com)$" AccessControlAllowOrigin=$0
+        Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+        Header merge Vary Origin
+    </IfModule>
+</FilesMatch>
 ```
  ...etc.
  
