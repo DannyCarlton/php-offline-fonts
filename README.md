@@ -45,7 +45,7 @@ You can use:
     </IfModule>
 </FilesMatch>
 ```
- ...etc.
+ ...etc. Of course, changing the site names to the domain you want to allow access.
  
  -----
 
